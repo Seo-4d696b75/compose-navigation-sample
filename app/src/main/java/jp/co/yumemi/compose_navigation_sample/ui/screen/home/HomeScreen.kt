@@ -1,4 +1,4 @@
-package jp.co.yumemi.compose_navigation_sample.ui.screen
+package jp.co.yumemi.compose_navigation_sample.ui.screen.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
