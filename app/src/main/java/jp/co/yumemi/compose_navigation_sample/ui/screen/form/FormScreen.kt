@@ -1,5 +1,6 @@
-package jp.co.yumemi.compose_navigation_sample.ui.screen
+package jp.co.yumemi.compose_navigation_sample.ui.screen.form
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -41,6 +42,8 @@ fun FormScreen(
         onTextChanged = viewModel::onTextChanged,
         onCheckChanged = viewModel::onCheckChanged,
         onSelectChanged = viewModel::onSelectChanged,
+        showResultA = viewModel::showResultA,
+        showResultB = viewModel::showResultB,
         modifier = modifier,
     )
 }
@@ -54,6 +57,8 @@ fun FormScreen(
     onTextChanged: (String) -> Unit,
     onCheckChanged: (Boolean) -> Unit,
     onSelectChanged: (FavoriteSelect) -> Unit,
+    showResultA: () -> Unit,
+    showResultB: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Scaffold(
@@ -83,11 +88,15 @@ fun FormScreen(
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.clickable(
+                    onClick = { onCheckChanged(!check) }
+                )
             ) {
                 Checkbox(
                     checked = check,
-                    onCheckedChange = onCheckChanged,
+                    onCheckedChange = null,
                 )
+                Spacer(modifier = Modifier.width(8.dp))
                 Text(text = "Familiar with Compose?")
             }
 
@@ -98,11 +107,15 @@ fun FormScreen(
                 FavoriteSelect.values().forEach { favorite ->
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.clickable(
+                            onClick = { onSelectChanged(favorite) }
+                        ).padding(vertical = 4.dp)
                     ) {
                         RadioButton(
                             selected = select == favorite,
-                            onClick = { onSelectChanged(favorite) },
+                            onClick = null,
                         )
+                        Spacer(modifier = Modifier.width(8.dp))
                         Text(text = favorite.displayedName)
                     }
                 }
@@ -121,11 +134,11 @@ fun FormScreen(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center,
             ) {
-                ElevatedButton(onClick = { /*TODO*/ }) {
+                ElevatedButton(onClick = showResultA) {
                     Text(text = "A")
                 }
                 Spacer(modifier = Modifier.width(32.dp))
-                ElevatedButton(onClick = { /*TODO*/ }) {
+                ElevatedButton(onClick = showResultB) {
                     Text(text = "B")
                 }
             }
@@ -144,6 +157,8 @@ private fun PreviewFormScreen() {
             onTextChanged = {},
             onCheckChanged = {},
             onSelectChanged = {},
+            showResultA = {},
+            showResultB = {},
         )
     }
 }

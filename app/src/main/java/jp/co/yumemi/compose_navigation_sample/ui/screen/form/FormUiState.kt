@@ -1,4 +1,4 @@
-package jp.co.yumemi.compose_navigation_sample.ui.screen
+package jp.co.yumemi.compose_navigation_sample.ui.screen.form
 
 import androidx.compose.runtime.Stable
 
