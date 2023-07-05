@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -46,7 +47,10 @@ fun ResultAScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
-            Text(text = "Hi, ${arg.name}")
+            Text(
+                text = "Hi, ${arg.name}",
+                style = MaterialTheme.typography.titleLarge,
+            )
             if (arg.isComposeMaster) {
                 Text(text = "You are Compose master!")
             } else {
@@ -102,7 +106,10 @@ fun ResultBScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
-            Text(text = "Hi, ${arg.name}")
+            Text(
+                text = "Hi, ${arg.name}",
+                style = MaterialTheme.typography.titleLarge,
+            )
             Text(text = "your select: ${arg.favorite.displayedName}")
             Image(
                 modifier = Modifier

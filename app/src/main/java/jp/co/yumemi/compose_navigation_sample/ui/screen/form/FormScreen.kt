@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
@@ -109,7 +110,7 @@ fun FormScreen(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier.clickable(
                             onClick = { onSelectChanged(favorite) }
-                        ).padding(vertical = 4.dp)
+                        ).padding(4.dp)
                     ) {
                         RadioButton(
                             selected = select == favorite,
@@ -129,6 +130,7 @@ fun FormScreen(
                     .padding(8.dp),
                 text = "Select next screen",
                 textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.titleMedium,
             )
             Row(
                 modifier = Modifier.fillMaxWidth(),

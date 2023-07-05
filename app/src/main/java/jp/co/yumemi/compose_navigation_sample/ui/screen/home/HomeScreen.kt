@@ -11,6 +11,7 @@ import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -56,7 +57,10 @@ fun HomeScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
-            Text(text = "Hello, Compose Navigation")
+            Text(
+                text = "Hello, Compose Navigation",
+                style = MaterialTheme.typography.headlineMedium,
+            )
             Image(
                 modifier = Modifier.size(200.dp),
                 painter = painterResource(id = R.drawable.ic_android),
